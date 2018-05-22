@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core"
+>
+<h:head>
+    <title>Index XHTML</title>
+    <h:outputStylesheet library="css" name="style.css"/>
+</h:head>
+<h:body>
+    <h1 class="center">Программа для размножения строки</h1>
+    <p id="task" class="center">
+        Первый аргумент – <em>строка</em><br/>
+        Второй аргумент – <em>число</em><br/>
+        Результат – <em>строка, повторенная заданное число раз</em>
+    </p>
+    <h:form id="params_form" class="center" enctype="text/plain">
+        <h:panelGrid title="Параметры задания" columns="2">
+            <h:outputLabel for="string_param_value" value="Введите строку"/>
+            <h:inputText id="string_param_value" value="#{taskBean.str}" converter="strConverter"/>
+
+            <h:outputLabel for="number_param_value" value="Введите число"/>
+            <h:inputText id="number_param_value" value="#{taskBean.num}" converter="numConverter" validator="numValidator"/>
+
+            <h:commandButton action="#{taskBean.doMultiply}" id="params_submit" value="Сгенерировать">
+                <f:ajax execute="@form" render="@form"/>
+            </h:commandButton>
+            <h:commandButton update="@form" id="params_reset" value="Сбросить"/>
+
+            <h:message for="string_param_value" class="error"/>
+            <h:message for="number_param_value" class="error"/>
+        </h:panelGrid>
+    </h:form>
+</h:body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../../resource/styles/style.css">
+    <meta charset="UTF-8">
+    <title>Index HTML</title>
+</head>
+<body>
+<h1 class="center">Программа для размножения строки</h1>
+<p id="task" class="center">
+    Первый аргумент – <i>строка</i><br/>
+    Второй аргумент – <i>число</i><br/>
+    Результат – <i>строка, повторенная заданное число раз</i>
+</p>
+<div id="form" class="center">
+    <form action="result.html" id="params_form" method="get" enctype="text/plain">
+        <fieldset form="params_form" name="params_fields">
+            <legend align="center">Параметры задания</legend>
+            <div id="string_param" class="param">
+                <label for="string_param_value" id="string_param_label">Введите строку<em>*</em></label>
+                <input type="text" name="string_value" id="string_param_value" form="params_form" pattern="^[\S\s]+$" required placeholder="Пример, Мир!">
+            </div>
+            <div id="number_param" class="param">
+                <label for="number_param_value" id="number_param_label">Введите натуральное число<em>*</em></label>
+                <input type="text" name="number_value" id="number_param_value" form="params_form" pattern="^[1-9][\d]*$" required placeholder="5">
+            </div>
+        </fieldset>
+        <div id="controls" class="center">
+            <button type="submit" form="params_form">Сгенерировать</button>
+            <button type="reset" name="params_reset" form="params_form">Сбросить</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

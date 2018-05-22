@@ -1,0 +1,53 @@
+a {
+    color: blue;
+}
+
+a:visited {
+    color: darkblue;
+}
+
+a:hover {
+    color: dodgerblue;
+}
+
+em {
+    color: red;
+}
+
+.center {
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+h1 {
+    top: 10%;
+}
+
+#task {
+    top: 30%;
+}
+
+#form {
+    top: 55%;
+}
+.param {
+    clear: both;
+    text-align: right;
+    line-height: 25px;
+}
+.param>label {
+    float: left;
+    padding-right: 10px;
+    margin-right: 5px;
+}
+
+#task_result {
+    word-wrap: break-word;
+}
+
+.error {
+    border: 1px solid red;
+}

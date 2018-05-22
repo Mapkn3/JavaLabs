@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+    http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+    <managed-bean>
+        <managed-bean-name>taskBean</managed-bean-name>
+        <managed-bean-class>beans.TaskBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <navigation-rule>
+        <from-view-id>/pages/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{taskBean.doMultiply}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/pages/result.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/pages/result.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>homePage</from-outcome>
+            <to-view-id>/pages/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <converter>
+        <converter-id>strConverter</converter-id>
+        <converter-class>converters.StrConverter</converter-class>
+    </converter>
+    <converter>
+        <converter-id>numConverter</converter-id>
+        <converter-class>converters.NumConverter</converter-class>
+    </converter>
+    <validator>
+        <validator-id>numValidator</validator-id>
+        <validator-class>validators.NumValidator</validator-class>
+    </validator>
+</faces-config>

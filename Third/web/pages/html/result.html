@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../../resource/styles/style.css">
+    <meta charset="UTF-8">
+    <title>Result HTML</title>
+</head>
+<body>
+<div id="result">
+    <p id="string_param">
+        Строка: <span id="string"></span>
+    </p>
+    <p id="number_param">
+        Количество повторений: <span id="number"></span>
+    </p>
+    <a href="index.html" id="homepage_link">На главную страницу</a>
+    <a href="result.html" id="download_link" download>Скачать result.html</a>
+</div>
+<p id="task_result"></p>
+</body>
+<script>
+    var params = window
+        .location
+        .search
+        .replace('?','')
+        .split('&')
+        .reduce(
+            function(p,e){
+                var a = e.split('=');
+                p[ decodeURIComponent(a[0])] = decodeURIComponent(a[1]);
+                return p;
+            },
+            {}
+        );
+    var str = params['string_value'];
+    var num = Number(params['number_value']);
+    document.getElementById('string').innerHTML = str;
+    document.getElementById('number').innerHTML = String(num);
+    document.getElementById('task_result').innerHTML = new Array(num+1).join(str);
+</script>
+</html>
